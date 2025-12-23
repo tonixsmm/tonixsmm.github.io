@@ -54,21 +54,6 @@
             flex-shrink: 0;
         }
 
-        /* Placeholder - replace src with your actual photo */
-        .profile-photo-placeholder {
-            width: 180px;
-            height: 180px;
-            border-radius: 4px;
-            background: linear-gradient(135deg, #002967 0%, #003d99 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 56px;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
         .header-info h1 {
             font-size: 26px;
             font-weight: 600;
@@ -185,6 +170,29 @@
             color: #444;
         }
 
+        /* Technical Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 10px 20px;
+            font-size: 14px;
+        }
+
+        .skills-grid .label {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .skills-grid .value {
+            color: #444;
+        }
+
+        /* Affiliations */
+        .affiliations {
+            font-size: 14px;
+            color: #444;
+        }
+
         /* Footer */
         .footer {
             margin-top: 50px;
@@ -206,6 +214,14 @@
             .contact-links {
                 justify-content: center;
             }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid .label {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -213,14 +229,12 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <!-- Replace this div with: <img src="photo.jpg" alt="Tony Nguyen" class="profile-photo"> -->
-            <!-- <div class="profile-photo-placeholder">TN</div> -->
             <img src="photo.jpg" alt="Tony Nguyen" class="profile-photo">
             
             <div class="header-info">
                 <h1>Tony Nguyen</h1>
                 <div class="subtitle">
-                    Senior, <a href="https://gonzaga.edu" target="_blank"></i> Gonzaga University</a><br>
+                    Senior, <a href="https://gonzaga.edu" target="_blank">Gonzaga University</a><br>
                     Computer Science &amp; Finance
                 </div>
                 <div class="bio">
@@ -259,11 +273,11 @@
                 <div class="meta"><a href="https://www.gonzaga.edu/informatics-and-applied-technology" target="_blank">Institute for Informatics &amp; Applied Technology</a> · Advisor: <a href="https://www.gonzaga.edu/news-events/stories/2024/9/5/jay-yang-director-of-the-institute-for-informatics-and-applied-technology" target="_blank">Dr. Jay Yang</a> · Jan 2025 – Present</div>
                 <div class="description">
                     <ul>
-                    <li>Benchmarked <b>three LLMs</b> on <b>more than 60 CVE reports</b> using <b>a three-stage RAG pipeline</b> with specialized <b>agents</b> for retrieval, analysis, and remediation recommendation, focusing on <b>insightfulness and verifiability</b>.</li>
-                    <li>Investigated <b>semantic embedding</b> strategies to handle conflicting or out-of-distribution security documentation beyond base model knowledge, with emphasis on failure modes and uncertainty.</li>
-                    <li>Designed and deployed <b>MCP agent services</b> on university servers, exposing secure endpoints for external users with authentication and observability to support reliable, multi-tenant access and testing.</li>
-                    <li>Developed and delivered a workshop on <b>RAG systems and LLM evaluation</b> to over <b>30 participants</b>, covering classical metrics, agent-based evaluation, and responsible AI practices through live coding demos.</li>
-                    <li>Conducting a comparative study of <b>RAG</b>, parameter-efficient fine-tuning (<b>PEFT</b>), and <b>knowledge editing</b> for CVE analysis, evaluating <b>open-source models</b> against <b>GPT-5</b> on accuracy, hallucination rate, and adaptation to novel vulnerabilities using an <b>MCP-orchestrated benchmark</b>.</li>
+                        <li>Benchmarked <b>three LLMs</b> on <b>more than 60 CVE reports</b> using <b>a three-stage RAG pipeline</b> with specialized <b>agents</b> for retrieval, analysis, and remediation recommendation, focusing on <b>insightfulness and verifiability</b>.</li>
+                        <li>Investigated <b>semantic embedding</b> strategies to handle conflicting or out-of-distribution security documentation beyond base model knowledge, with emphasis on failure modes and uncertainty.</li>
+                        <li>Designed and deployed <b>MCP agent services</b> on university servers, exposing secure endpoints for external users with authentication and observability to support reliable, multi-tenant access and testing.</li>
+                        <li>Developed and delivered a workshop on <b>RAG systems and LLM evaluation</b> to over <b>30 participants</b>, covering classical metrics, agent-based evaluation, and responsible AI practices through live coding demos.</li>
+                        <li>Conducting a comparative study of <b>RAG</b>, parameter-efficient fine-tuning (<b>PEFT</b>), and <b>knowledge editing</b> for CVE analysis, evaluating <b>open-source models</b> against <b>GPT-5</b> on accuracy, hallucination rate, and adaptation to novel vulnerabilities using an <b>MCP-orchestrated benchmark</b>.</li>
                     </ul>
                 </div>
             </div>
@@ -278,8 +292,8 @@
                 <div class="meta">KPIM Vietnam · Hanoi, Vietnam · Summer 2025</div>
                 <div class="description">
                     <ul>
-                    <li>Designed and maintained <b>10+ data pipelines</b> using <b>SQL, Python, and Microsoft Fabric</b> for 2 Big Data projects, enforcing complex schema validation, data quality checks, and optimizations to make querying <b>50% faster</b> than our client's internal system.</li>
-                    <li>Built reusable tooling and documentation to streamline troubleshooting, standardize workflows, and support stakeholders with reliable, self-serve financial and operational data of the client’s <b>six hotel properties</b>.</li>
+                        <li>Designed and maintained <b>10+ data pipelines</b> using <b>SQL, Python, and Microsoft Fabric</b> for 2 Big Data projects, enforcing complex schema validation, data quality checks, and optimizations to make querying <b>50% faster</b> than our client's internal system.</li>
+                        <li>Built reusable tooling and documentation to streamline troubleshooting, standardize workflows, and support stakeholders with reliable, self-serve financial and operational data of the client's <b>six hotel properties</b>.</li>
                     </ul>
                 </div>
             </div>
@@ -289,9 +303,9 @@
                 <div class="meta">KONE Elevators &amp; Escalators · Singapore · Summer 2024</div>
                 <div class="description">
                     <ul>
-                    <li>Built a centralized <b>Customer 360</b> by integrating <b>20 years</b> of data from <b>5 countries</b>; aligned models to enterprise architecture and recommended schema optimizations to improve consistency and join performance.</li>
-                    <li>Developed a <b>Tableau dashboard</b> that fed from <b>SAP, Salesforce, and Excel</b>; created data models and calculations to monitor customer behavior, service KPIs, and revenue in real time.</li>
-                    <li>Engineered and operated <b>ETL pipelines</b> on <b>AWS S3</b> for ingestion, storage, and validation; automated integrity checks and partitioning to <b>reduce data retrieval latency by 40%</b> and improve reliability.</li>
+                        <li>Built a centralized <b>Customer 360</b> by integrating <b>20 years</b> of data from <b>5 countries</b>; aligned models to enterprise architecture and recommended schema optimizations to improve consistency and join performance.</li>
+                        <li>Developed a <b>Tableau dashboard</b> that fed from <b>SAP, Salesforce, and Excel</b>; created data models and calculations to monitor customer behavior, service KPIs, and revenue in real time.</li>
+                        <li>Engineered and operated <b>ETL pipelines</b> on <b>AWS S3</b> for ingestion, storage, and validation; automated integrity checks and partitioning to <b>reduce data retrieval latency by 40%</b> and improve reliability.</li>
                     </ul>
                 </div>
             </div>
@@ -301,9 +315,9 @@
                 <div class="meta">TecAlliance Vietnam · Ho Chi Minh City, Vietnam · Summer 2023</div>
                 <div class="description">
                     <ul>
-                    <li>Engineered Python algorithms to parse data from <b>100+ Wiring Diagram SVGs</b>, creating structured datasets for computer vision models (<b>YOLO</b>) and <b>advanced ML pipelines</b>.</li>
-                    <li>Deployed a <b>Neo4j graph database</b> to store complex relationships extracted from automotive schematics, increasing <b>query speed by 80%</b> compared to the client’s current database and providing deeper insights.</li>
-                    <li>Led weekly <b>global team meetings</b> of nearly <b>15 people</b> to unify data engineering efforts, consolidate findings, and manage development timelines <b>across multiple time zones</b>.</li>
+                        <li>Engineered Python algorithms to parse data from <b>100+ Wiring Diagram SVGs</b>, creating structured datasets for computer vision models (<b>YOLO</b>) and <b>advanced ML pipelines</b>.</li>
+                        <li>Deployed a <b>Neo4j graph database</b> to store complex relationships extracted from automotive schematics, increasing <b>query speed by 80%</b> compared to the client's current database and providing deeper insights.</li>
+                        <li>Led weekly <b>global team meetings</b> of nearly <b>15 people</b> to unify data engineering efforts, consolidate findings, and manage development timelines <b>across multiple time zones</b>.</li>
                     </ul>
                 </div>
             </div>
@@ -331,7 +345,7 @@
                     <a href="https://github.com/CS26-13/minecraft-ollama" target="_blank">Minecraft AI Companion</a>
                 </div>
                 <div class="description">
-                    Senior capstone project. Open-source Minecraft mod integrating locally-hosted LLMs via Ollama 
+                    Senior capstone project. Open-source Minecraft mod integrating <b>locally-hosted LLMs</b> via Ollama 
                     for world-aware villager dialogue with context-aware guardrails.
                 </div>
             </div>
@@ -347,17 +361,81 @@
             </div>
         </div>
 
-        <!-- Teaching -->
+        <!-- Teaching and Mentoring Experience -->
         <div class="section">
-            <h2>Teaching</h2>
+            <h2>Teaching &amp; Mentoring Experience</h2>
             
             <div class="experience-item">
                 <div class="title">Teaching Assistant</div>
                 <div class="meta">Department of Computer Science, Gonzaga University · Aug 2024 – Present</div>
                 <div class="description">
-                    Supporting 150+ undergraduates across 3 data science courses. 
-                    Leading office hours for Python, pandas, scikit-learn, and core algorithms.
+                    <ul>
+                        <li>Supported <b>150+ undergraduates</b> across <b>3 data science courses</b>, leading weekly office hours to reinforce students' <b>Python, pandas, and scikit-learn</b> skills and core algorithms and data workflows.</li>
+                        <li>Graded <b>10 programming assignments</b> each term using shared rubrics, providing targeted feedback on correctness, code structure, and documentation to improve code quality and conceptual understanding.</li>
+                    </ul>
                 </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="title">Academic Tutor &amp; Mentor</div>
+                <div class="meta">Gonzaga Global, Gonzaga University · Oct 2022 – Aug 2024</div>
+                <div class="description">
+                    <ul>
+                        <li>Provided tutoring and lab support for <b>7 computer science and quantitative courses</b> for dozens of students each term, contributing to <b>15%+ average grade improvement</b> for tutees.</li>
+                        <li>Mentored international students on adapting to U.S. college coursework and expectations, including study strategies, communication with professors, and academic integrity.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional & Leadership Experience -->
+        <div class="section">
+            <h2>Professional &amp; Leadership Experience</h2>
+            
+            <div class="experience-item">
+                <div class="title">Administrative Assistant</div>
+                <div class="meta">Center for Global Engagement, Gonzaga University · Mar 2022 – Present</div>
+                <div class="description">
+                    <ul>
+                        <li>Mentored <b>50+ incoming international students</b> through cultural and academic transition to US college; designed automated workflows reducing administrative burden by <b>30%</b>, enabling more direct student support.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="title">Co-Founder &amp; Senior Advisor</div>
+                <div class="meta">Vietnamese Student Association, Gonzaga University · Nov 2021 – May 2025</div>
+                <div class="description">
+                    <ul>
+                        <li>Co-founded the organization to foster supportive community for Vietnamese students; mentored <b>10+ leaders</b> in data-informed planning, increasing event turnout by <b>20%</b> and generating <b>$700+ profit</b>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Affiliations & Memberships -->
+        <div class="section">
+            <h2>Professional Affiliations &amp; Memberships</h2>
+            <p class="affiliations">
+                Member, Society of Hispanic Professional Engineers
+            </p>
+        </div>
+
+        <!-- Technical Proficiencies -->
+        <div class="section">
+            <h2>Technical Proficiencies</h2>
+            <div class="skills-grid">
+                <div class="label">Programming Languages</div>
+                <div class="value">Python, SQL (MySQL, BigQuery SQL), C++, Java</div>
+                
+                <div class="label">Data &amp; ML Frameworks</div>
+                <div class="value">pandas, NumPy, scikit-learn, PyTorch, spaCy, Streamlit, Flask, FastAPI, pytest</div>
+                
+                <div class="label">Data Engineering &amp; Analytics</div>
+                <div class="value">Tableau, Power BI, Microsoft Fabric, Salesforce CRM, ETL pipelines, Docker, Git, Linux, Google Cloud, AWS</div>
+                
+                <div class="label">AI &amp; LLM Systems</div>
+                <div class="value">RAG pipelines, LangChain, CrewAI, Semantic Kernel, Hugging Face Transformers, MCP, AI agents, embeddings</div>
             </div>
         </div>
 
