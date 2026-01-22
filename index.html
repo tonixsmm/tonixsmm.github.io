@@ -308,6 +308,25 @@
                 margin-top: 10px;
             }
         }
+
+        /* Project Images */
+        .project-image {
+            margin: 12px 0 0 0;
+        }
+
+        .project-image img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .project-image figcaption {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 6px;
+        }
     </style>
 </head>
 <body>
@@ -450,6 +469,14 @@
                     Senior capstone project. Open-source Minecraft mod integrating <b>locally-hosted LLMs</b> via Ollama 
                     for world-aware villager dialogue with context-aware guardrails.
                 </div>
+                <figure class="project-image">
+                    <img src="minecraft-trade-menu.png" alt="Minecraft Trade Menu">
+                    <figcaption>Our new villager trade menu, updated with the new “CHAT” button.</figcaption>
+                </figure>
+                <figure class="project-image">
+                    <img src="minecraft-chat.png" alt="Minecraft Chat Interface">
+                    <figcaption>Our new UI menu for chatting with the chosen villager. Villager messages appear in green, and player messages appear in blue.</figcaption>
+                </figure>
             </div>
 
             <div class="project-item">
@@ -537,7 +564,7 @@
         <div class="section" id="affiliations">
             <h2>Professional Affiliations &amp; Memberships</h2>
             <p class="affiliations">
-                Member, Society of Hispanic Professional Engineers
+                <i>Member</i>, Society of Hispanic Professional Engineers
             </p>
         </div>
 
