@@ -15,6 +15,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             font-size: 15px;
@@ -27,6 +31,7 @@
         .container {
             max-width: 820px;
             margin: 0 auto;
+            margin-left: calc(50% - 410px + 100px);
         }
 
         a {
@@ -36,6 +41,74 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        /* Table of Contents */
+        .toc {
+            position: fixed;
+            top: 50px;
+            left: 30px;
+            width: 180px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+            padding: 15px 0;
+            z-index: 100;
+        }
+
+        .toc-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #000000;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #000000;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 6px;
+        }
+
+        .toc-list a {
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+            display: block;
+            padding: 4px 0 4px 12px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .toc-list a:hover {
+            color: #000000;
+            text-decoration: none;
+            border-left-color: #000000;
+        }
+
+        .toc-list a.active {
+            color: #000000;
+            font-weight: 600;
+            border-left-color: #000000;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
+        }
+
+        /* Scrollbar styling for TOC */
+        .toc::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .toc::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .toc::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 3px;
         }
 
         /* Header Section */
@@ -94,6 +167,7 @@
         /* Section Styling */
         .section {
             margin-bottom: 35px;
+            scroll-margin-top: 30px;
         }
 
         .section h2 {
@@ -204,6 +278,17 @@
         }
 
         /* Responsive */
+        @media (max-width: 1100px) {
+            .toc {
+                display: none;
+            }
+
+            .container {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
         @media (max-width: 600px) {
             .header {
                 flex-direction: column;
@@ -226,9 +311,26 @@
     </style>
 </head>
 <body>
+    <!-- Table of Contents -->
+    <nav class="toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#research-interests">Research Interests</a></li>
+            <li><a href="#research-experience">Research Experience</a></li>
+            <li><a href="#industry-experience">Industry Experience</a></li>
+            <li><a href="#presentations">Presentations</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#teaching">Teaching & Mentoring</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#skills">Technical Skills</a></li>
+            <li><a href="#affiliations">Affiliations</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <!-- Header -->
-        <div class="header">
+        <div class="header" id="about">
             <img src="photo.jpg" alt="Tony Nguyen" class="profile-photo">
             
             <div class="header-info">
@@ -255,7 +357,7 @@
         </div>
 
         <!-- Research Interests -->
-        <div class="section">
+        <div class="section" id="research-interests">
             <h2>Research Interests</h2>
             <p class="interests">
                 Knowledge representation and evaluation in LLMs · Retrieval-augmented generation · 
@@ -265,7 +367,7 @@
         </div>
 
         <!-- Research Experience -->
-        <div class="section">
+        <div class="section" id="research-experience">
             <h2>Research Experience</h2>
             
             <div class="experience-item">
@@ -284,7 +386,7 @@
         </div>
 
         <!-- Industry Experience -->
-        <div class="section">
+        <div class="section" id="industry-experience">
             <h2>Industry Experience</h2>
             
             <div class="experience-item">
@@ -324,20 +426,20 @@
         </div>
 
         <!-- Presentations -->
-        <div class="section">
+        <div class="section" id="presentations">
             <h2>Presentations</h2>
             
             <div class="pub-item">
-                Poster presentation. <span class="venue">Value &amp; Responsibility in AI Technologies Conference, 2025.</span> Spokane, WA.
+                <a href="AI_Ethics_Presentation.pdf" target="_blank"><i class="fas fa-file-pdf"></i>Poster presentation</a>. <span class="venue">Value &amp; Responsibility in AI Technologies Conference, 2025.</span> Spokane, WA.
             </div>
             
             <div class="pub-item">
-                Poster presentation. <span class="venue">Spokane Intercollegiate Research Conference (SIRC), 2025.</span> Spokane, WA.
+                <a href="May_Conference_Poster.pdf" target="_blank"><i class="fas fa-file-pdf"></i>Poster presentation</a>. <span class="venue">Spokane Intercollegiate Research Conference (SIRC), 2025.</span> Spokane, WA.
             </div>
         </div>
 
         <!-- Projects -->
-        <div class="section">
+        <div class="section" id="projects">
             <h2>Projects</h2>
             
             <div class="project-item">
@@ -362,7 +464,7 @@
         </div>
 
         <!-- Teaching and Mentoring Experience -->
-        <div class="section">
+        <div class="section" id="teaching">
             <h2>Teaching &amp; Mentoring Experience</h2>
             
             <div class="experience-item">
@@ -389,7 +491,7 @@
         </div>
 
         <!-- Professional & Leadership Experience -->
-        <div class="section">
+        <div class="section" id="leadership">
             <h2>Professional &amp; Leadership Experience</h2>
             
             <div class="experience-item">
@@ -413,16 +515,8 @@
             </div>
         </div>
 
-        <!-- Professional Affiliations & Memberships -->
-        <div class="section">
-            <h2>Professional Affiliations &amp; Memberships</h2>
-            <p class="affiliations">
-                Member, Society of Hispanic Professional Engineers
-            </p>
-        </div>
-
         <!-- Technical Proficiencies -->
-        <div class="section">
+        <div class="section" id="skills">
             <h2>Technical Proficiencies</h2>
             <div class="skills-grid">
                 <div class="label">Programming Languages</div>
@@ -439,10 +533,46 @@
             </div>
         </div>
 
+        <!-- Professional Affiliations & Memberships -->
+        <div class="section" id="affiliations">
+            <h2>Professional Affiliations &amp; Memberships</h2>
+            <p class="affiliations">
+                Member, Society of Hispanic Professional Engineers
+            </p>
+        </div>
+
         <!-- Footer -->
         <div class="footer">
             © 2025 Tony Nguyen · Last updated December 2025
         </div>
     </div>
+
+    <script>
+        // Highlight active TOC item on scroll
+        const sections = document.querySelectorAll('.section, .header');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+
+        function updateActiveLink() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('load', updateActiveLink);
+    </script>
 </body>
 </html>
