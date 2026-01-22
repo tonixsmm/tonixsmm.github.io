@@ -43,7 +43,7 @@
             text-decoration: underline;
         }
 
-        /* Table of Contents */
+        /* Desktop Table of Contents */
         .toc {
             position: fixed;
             top: 50px;
@@ -109,6 +109,87 @@
         .toc::-webkit-scrollbar-thumb {
             background: #ddd;
             border-radius: 3px;
+        }
+
+        /* Mobile TOC */
+        .toc-mobile {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 200;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .toc-mobile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .toc-mobile-header span {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #333;
+        }
+
+        .toc-mobile-header i {
+            font-size: 14px;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .toc-mobile.open .toc-mobile-header i {
+            transform: rotate(180deg);
+        }
+
+        .toc-mobile-list {
+            list-style: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #fafafa;
+        }
+
+        .toc-mobile.open .toc-mobile-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .toc-mobile-list li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .toc-mobile-list li:last-child {
+            border-bottom: none;
+        }
+
+        .toc-mobile-list a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .toc-mobile-list a:hover,
+        .toc-mobile-list a.active {
+            background: #f0f0f0;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .toc-mobile-list a.active {
+            font-weight: 600;
+            border-left: 3px solid #000;
         }
 
         /* Header Section */
@@ -283,9 +364,22 @@
                 display: none;
             }
 
+            .toc-mobile {
+                display: block;
+            }
+
             .container {
                 margin-left: auto;
                 margin-right: auto;
+                padding-top: 50px;
+            }
+
+            body {
+                padding-top: 20px;
+            }
+
+            .section {
+                scroll-margin-top: 70px;
             }
         }
 
@@ -327,10 +421,36 @@
             font-style: italic;
             margin-top: 6px;
         }
+
+        @media (max-width: 600px) {
+            .project-image img {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Table of Contents -->
+    <!-- Mobile Table of Contents -->
+    <nav class="toc-mobile" id="toc-mobile">
+        <div class="toc-mobile-header" onclick="toggleMobileToc()">
+            <span>Contents</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <ul class="toc-mobile-list">
+            <li><a href="#about" onclick="closeMobileToc()">About</a></li>
+            <li><a href="#research-interests" onclick="closeMobileToc()">Research Interests</a></li>
+            <li><a href="#research-experience" onclick="closeMobileToc()">Research Experience</a></li>
+            <li><a href="#industry-experience" onclick="closeMobileToc()">Industry Experience</a></li>
+            <li><a href="#presentations" onclick="closeMobileToc()">Presentations</a></li>
+            <li><a href="#projects" onclick="closeMobileToc()">Projects</a></li>
+            <li><a href="#teaching" onclick="closeMobileToc()">Teaching & Mentoring</a></li>
+            <li><a href="#leadership" onclick="closeMobileToc()">Leadership</a></li>
+            <li><a href="#skills" onclick="closeMobileToc()">Technical Skills</a></li>
+            <li><a href="#affiliations" onclick="closeMobileToc()">Affiliations</a></li>
+        </ul>
+    </nav>
+
+    <!-- Desktop Table of Contents -->
     <nav class="toc">
         <div class="toc-title">Contents</div>
         <ul class="toc-list">
@@ -471,7 +591,7 @@
                 </div>
                 <figure class="project-image">
                     <img src="minecraft-trade-menu.png" alt="Minecraft Trade Menu">
-                    <figcaption>Our new villager trade menu, updated with the new “CHAT” button.</figcaption>
+                    <figcaption>Our new villager trade menu, updated with the new "CHAT" button.</figcaption>
                 </figure>
                 <figure class="project-image">
                     <img src="minecraft-chat.png" alt="Minecraft Chat Interface">
@@ -575,9 +695,21 @@
     </div>
 
     <script>
+        // Mobile TOC toggle
+        function toggleMobileToc() {
+            const toc = document.getElementById('toc-mobile');
+            toc.classList.toggle('open');
+        }
+
+        function closeMobileToc() {
+            const toc = document.getElementById('toc-mobile');
+            toc.classList.remove('open');
+        }
+
         // Highlight active TOC item on scroll
         const sections = document.querySelectorAll('.section, .header');
         const tocLinks = document.querySelectorAll('.toc-list a');
+        const tocMobileLinks = document.querySelectorAll('.toc-mobile-list a');
 
         function updateActiveLink() {
             let current = '';
@@ -590,7 +722,16 @@
                 }
             });
 
+            // Update desktop TOC
             tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Update mobile TOC
+            tocMobileLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
