@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/nav.css">
+<script src="../assets/js/nav.js" defer></script>
 <style>
   body{margin:0}
   a{color:#0F766E;text-decoration:none}
@@ -49,16 +51,24 @@
 
 <div style="min-height:100vh;background:oklch(98% 0.006 250);color:oklch(22% 0.02 260);font-family:'Source Serif 4',serif;line-height:1.6;font-weight:300">
 
-  <nav style="position:sticky;top:16px;z-index:50;display:flex;justify-content:center;padding:0 20px">
+  <nav class="site-nav" style="position:sticky;top:16px;z-index:50;display:flex;flex-direction:column;align-items:center;padding:0 20px">
     <div style="display:flex;align-items:center;gap:28px;background:oklch(100% 0 0 / 0.65);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.6);border-radius:999px;box-shadow:0 8px 30px oklch(22% 0.02 260 / 0.1),inset 0 1px 0 oklch(100% 0 0 / 0.8);padding:10px 22px;max-width:640px;width:100%">
       <a href="../index.html" style="font-family:'Fraunces',serif;font-weight:700;font-size:15px;color:oklch(22% 0.02 260);flex-shrink:0">tonixsmm</a>
-      <div style="display:flex;flex:1;justify-content:flex-end;gap:26px;font-size:13px;font-weight:600;letter-spacing:0.02em;text-transform:lowercase;min-width:0;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch">
+      <div class="nav-links" style="display:flex;flex:1;justify-content:flex-end;gap:26px;font-size:13px;font-weight:600;letter-spacing:0.02em;text-transform:lowercase;min-width:0;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch">
         <a href="../index.html" style="color:oklch(22% 0.02 260)">home</a>
         <a href="About.dc.html" style="color:oklch(22% 0.02 260)">about</a>
         <a href="Experience.dc.html" style="color:oklch(22% 0.02 260)">experience</a>
         <a href="Projects.dc.html" style="color:oklch(22% 0.02 260)">projects</a>
         <a href="Resume.dc.html" style="color:#0F766E;font-weight:700">resume</a>
       </div>
+      <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-dropdown">
+        <a href="../index.html" style="color:oklch(22% 0.02 260)">home</a>
+        <a href="About.dc.html" style="color:oklch(22% 0.02 260)">about</a>
+        <a href="Experience.dc.html" style="color:oklch(22% 0.02 260)">experience</a>
+        <a href="Projects.dc.html" style="color:oklch(22% 0.02 260)">projects</a>
+        <a href="Resume.dc.html" style="color:#0F766E;font-weight:700">resume</a>
     </div>
   </nav>
 
