@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../assets/js/support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+  body{margin:0}
+  a{color:#0F766E;text-decoration:none}
+  a:hover{text-decoration:underline}
+</style>
+<script>
+(function(){
+  function buildPanel(startX){
+    var p=document.createElement('div');
+    p.id='__slide-overlay';
+    p.style.position='fixed';p.style.top='0';p.style.bottom='0';p.style.left='0';p.style.width='100%';
+    p.style.background='oklch(98% 0.006 250)';p.style.zIndex='9999';p.style.pointerEvents='none';
+    p.style.transform='translateX('+startX+')';
+    document.body.appendChild(p);
+    return p;
+  }
+  function revealLeftToRight(){
+    var p=buildPanel('0%');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        p.style.transition='transform 0.55s cubic-bezier(.65,0,.35,1)';
+        p.style.transform='translateX(100%)';
+      });
+    });
+    setTimeout(function(){ p.remove(); }, 600);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', revealLeftToRight);
+  } else {
+    revealLeftToRight();
+  }
+})();
+</script>
+</helmet>
+
+<div style="min-height:100vh;background:oklch(98% 0.006 250);color:oklch(22% 0.02 260);font-family:'Source Serif 4',serif;line-height:1.6;font-weight:300">
+
+  <nav style="position:sticky;top:16px;z-index:50;display:flex;justify-content:center;padding:0 20px">
+    <div style="display:flex;align-items:center;gap:28px;background:oklch(100% 0 0 / 0.65);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.6);border-radius:999px;box-shadow:0 8px 30px oklch(22% 0.02 260 / 0.1),inset 0 1px 0 oklch(100% 0 0 / 0.8);padding:10px 12px 10px 22px;max-width:640px;width:100%">
+      <a href="../index.html" style="font-family:'Fraunces',serif;font-weight:700;font-size:15px;color:oklch(22% 0.02 260);flex-shrink:0">tonixsmm</a>
+      <div style="display:flex;flex:1;justify-content:center;gap:26px;font-size:13px;font-weight:600;letter-spacing:0.02em;text-transform:lowercase">
+        <a href="../index.html" style="color:oklch(22% 0.02 260)">home</a>
+        <a href="About.dc.html" style="color:oklch(22% 0.02 260)">about</a>
+        <a href="Experience.dc.html" style="color:oklch(22% 0.02 260)">experience</a>
+        <a href="Projects.dc.html" style="color:oklch(22% 0.02 260)">projects</a>
+        <a href="Resume.dc.html" style="color:#0F766E;font-weight:700">resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <div style="max-width:820px;margin:0 auto;padding:64px 28px 16px">
+    <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0F766E;margin-bottom:8px">/ resume</div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px">
+      <h1 style="font-family:'Fraunces',serif;font-size:clamp(28px,4vw,36px);font-weight:700;margin:0">Resume &amp; CV</h1>
+      <div style="display:flex;gap:12px;font-size:13px;font-weight:600">
+        <span style="display:inline-flex;align-items:center;border:1px solid oklch(85% 0.01 260);border-radius:999px;overflow:hidden">
+          <a href="{{ activeUrl }}" onclick="{{ showResume }}" style="padding:8px 14px;{{ resumeTabStyle }}">Resume</a>
+          <a href="../assets/docs/Tony_Resume.pdf" download style="padding:8px 12px;border-left:1px solid oklch(85% 0.01 260)" title="Download Resume">↓</a>
+        </span>
+        <span style="display:inline-flex;align-items:center;border:1px solid oklch(85% 0.01 260);border-radius:999px;overflow:hidden">
+          <a href="{{ activeUrl }}" onclick="{{ showCv }}" style="padding:8px 14px;{{ cvTabStyle }}">CV</a>
+          <a href="../assets/docs/Tony_CV.pdf" download style="padding:8px 12px;border-left:1px solid oklch(85% 0.01 260)" title="Download CV">↓</a>
+        </span>
+      </div>
+    </div>
+    <iframe src="{{ activeUrl }}" title="Resume preview" style="width:100%;height:820px;border:1px solid oklch(91% 0.01 260);border-radius:16px;margin-bottom:48px"></iframe>
+  </div>
+
+  <footer style="max-width:920px;margin:0 auto;padding:56px 28px 48px;border-top:1px solid oklch(91% 0.01 260)">
+    <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0F766E;margin-bottom:10px">/ thanks for stopping by</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:26px;font-weight:700;margin:0 0 20px">Be in touch!</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:20px;font-size:14px;font-weight:600;margin-bottom:24px">
+      <a href="mailto:nguyen.cong@northeastern.edu">nguyen.cong@northeastern.edu</a>
+      <a href="https://www.linkedin.com/in/tonixsmm/" target="_blank">linkedin.com/in/tonixsmm</a>
+      <a href="https://github.com/tonixsmm" target="_blank">github.com/tonixsmm</a>
+    </div>
+    <div style="font-size:12px;color:oklch(55% 0.02 260)">© 2026 Tony Nguyen · Last updated August 2026</div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { doc: 'resume' };
+
+  renderVals() {
+    const isResume = this.state.doc === 'resume';
+    return {
+      activeUrl: isResume ? '../assets/docs/Tony_Resume.pdf' : '../assets/docs/Tony_CV.pdf',
+      showResume: (e) => { e.preventDefault(); this.setState({ doc: 'resume' }); },
+      showCv: (e) => { e.preventDefault(); this.setState({ doc: 'cv' }); },
+      resumeTabStyle: isResume ? 'background:oklch(93% 0.03 165);color:#0F766E' : '',
+      cvTabStyle: !isResume ? 'background:oklch(93% 0.03 165);color:#0F766E' : '',
+    };
+  }
+}
+</script>
+</body>
+</html>

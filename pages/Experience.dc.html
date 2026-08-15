@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../assets/js/support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+<script src="../assets/js/image-slot.js"></script>
+<style>
+  body{margin:0}
+  a{color:#0F766E;text-decoration:none}
+  a:hover{text-decoration:underline}
+  #mofusand-sticker::part(ring){display:none}
+</style>
+<script>
+(function(){
+  function buildPanel(startX){
+    var p=document.createElement('div');
+    p.id='__slide-overlay';
+    p.style.position='fixed';p.style.top='0';p.style.bottom='0';p.style.left='0';p.style.width='100%';
+    p.style.background='oklch(98% 0.006 250)';p.style.zIndex='9999';p.style.pointerEvents='none';
+    p.style.transform='translateX('+startX+')';
+    document.body.appendChild(p);
+    return p;
+  }
+  function revealLeftToRight(){
+    var p=buildPanel('0%');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        p.style.transition='transform 0.55s cubic-bezier(.65,0,.35,1)';
+        p.style.transform='translateX(100%)';
+      });
+    });
+    setTimeout(function(){ p.remove(); }, 600);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', revealLeftToRight);
+  } else {
+    revealLeftToRight();
+  }
+})();
+</script>
+</helmet>
+
+<div style="min-height:100vh;background:oklch(98% 0.006 250);color:oklch(22% 0.02 260);font-family:'Source Serif 4',serif;line-height:1.6;font-weight:300">
+
+  <nav style="position:sticky;top:16px;z-index:50;display:flex;justify-content:center;padding:0 20px">
+    <div style="display:flex;align-items:center;gap:28px;background:oklch(100% 0 0 / 0.65);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.6);border-radius:999px;box-shadow:0 8px 30px oklch(22% 0.02 260 / 0.1),inset 0 1px 0 oklch(100% 0 0 / 0.8);padding:10px 12px 10px 22px;max-width:640px;width:100%">
+      <a href="../index.html" style="font-family:'Fraunces',serif;font-weight:700;font-size:15px;color:oklch(22% 0.02 260);flex-shrink:0">tonixsmm</a>
+      <div style="display:flex;flex:1;justify-content:center;gap:26px;font-size:13px;font-weight:600;letter-spacing:0.02em;text-transform:lowercase">
+        <a href="../index.html" style="color:oklch(22% 0.02 260)">home</a>
+        <a href="About.dc.html" style="color:oklch(22% 0.02 260)">about</a>
+        <a href="Experience.dc.html" style="color:#0F766E;font-weight:700">experience</a>
+        <a href="Projects.dc.html" style="color:oklch(22% 0.02 260)">projects</a>
+        <a href="Resume.dc.html" style="color:oklch(22% 0.02 260)">resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <section style="max-width:920px;margin:0 auto;padding:64px 28px 56px;position:relative">
+    <image-slot id="mofusand-sticker" shape="rounded" radius="12" fit="contain" src="../assets/images/mofusand.png" placeholder="mofusand cat sticker" style="width:76px;height:76px;position:absolute;right:24px;top:56px"></image-slot>
+    <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0F766E;margin-bottom:8px">/ research</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 16px">Research Interests</h2>
+    <p style="font-size:14px;color:oklch(35% 0.02 260);max-width:640px;margin:0 0 32px">Knowledge representation and evaluation in LLMs · Skill integration for AI-assisted threat hunting · Retrieval-augmented generation · Agentic systems · Resource-constrained AI systems</p>
+
+    <div style="position:relative;padding-left:28px;margin-bottom:12px">
+      <div style="position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:oklch(88% 0.01 260)"></div>
+      <div style="position:relative;margin-bottom:8px">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">Jan 2025 – May 2026</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">AI / Machine Learning Research Assistant</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px"><a href="https://www.gonzaga.edu/informatics-and-applied-technology" target="_blank">Institute for Informatics &amp; Applied Technology</a> · Advisor: <a href="https://www.gonzaga.edu/news-events/stories/2024/9/5/jay-yang-director-of-the-institute-for-informatics-and-applied-technology" target="_blank">Dr. Jay Yang</a></div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Designed and built the Wazuh MCP Server, an open-source Python server with 30+ endpoints that lets LLMs investigate security events through structured tool calls — then used it to benchmark skill integration across Claude Sonnet, Opus, and Gemma 4 against a ground-truth attack chain, and to evaluate three LLMs on 60+ CVE reports through a three-stage RAG pipeline.</p>
+      </div>
+    </div>
+    <div style="font-size:13px;font-weight:600;margin:0 0 32px 28px"><a href="Resume.dc.html">Full details in Resume →</a></div>
+
+    <div style="font-family:'Fraunces',serif;font-weight:700;font-size:16px;margin-bottom:20px">Presentations</div>
+    <div style="position:relative;padding-left:28px">
+      <div style="position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:oklch(88% 0.01 260)"></div>
+
+      <div style="position:relative;margin-bottom:24px">
+        <span style="position:absolute;left:-24px;top:5px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:4px">2026 · Spokane, WA</div>
+        <div style="font-size:14px;color:oklch(30% 0.02 260)"><a href="../assets/docs/IIAT_Conference_Poster_2026.pdf" target="_blank">Poster presentation</a>. <span style="font-style:italic;color:oklch(50% 0.02 260)">Value &amp; Responsibility in AI Technologies Conference.</span></div>
+      </div>
+      <div style="position:relative;margin-bottom:24px">
+        <span style="position:absolute;left:-24px;top:5px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:4px">2026 · Seattle, WA</div>
+        <div style="font-size:14px;color:oklch(30% 0.02 260)"><a href="../assets/docs/IIAT_Conference_Poster.pdf" target="_blank">Poster presentation</a>. <span style="font-style:italic;color:oklch(50% 0.02 260)">University of Washington Undergraduate Research Symposium.</span></div>
+      </div>
+      <div style="position:relative;margin-bottom:24px">
+        <span style="position:absolute;left:-24px;top:5px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:4px">2025 · Spokane, WA</div>
+        <div style="font-size:14px;color:oklch(30% 0.02 260)"><a href="../assets/docs/AI_Ethics_Presentation.pdf" target="_blank">Poster presentation</a>. <span style="font-style:italic;color:oklch(50% 0.02 260)">Value &amp; Responsibility in AI Technologies Conference.</span></div>
+      </div>
+      <div style="position:relative">
+        <span style="position:absolute;left:-24px;top:5px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:4px">2025 · Spokane, WA</div>
+        <div style="font-size:14px;color:oklch(30% 0.02 260)"><a href="../assets/docs/May_Conference_Poster.pdf" target="_blank">Poster presentation</a>. <span style="font-style:italic;color:oklch(50% 0.02 260)">Spokane Intercollegiate Research Conference (SIRC).</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:920px;margin:0 auto;padding:8px 28px 56px">
+    <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0F766E;margin-bottom:8px">/ industry experience</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 20px">Where I've worked</h2>
+
+    <div style="position:relative;padding-left:28px">
+      <div style="position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:oklch(88% 0.01 260)"></div>
+
+      <div style="position:relative;margin-bottom:44px">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">June 2025 – September 2025</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">Data Engineer Intern</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px">KPIM Vietnam · Hanoi, Vietnam</div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Designed and maintained 10+ data pipelines across two Big Data projects, cutting query times by 50% and giving six hotel properties reliable, self-service financial and operational data.</p>
+      </div>
+
+      <div style="position:relative;margin-bottom:44px">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">June 2024 – August 2024</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">Data Engineer — Innovation Intern</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px">KONE Elevators &amp; Escalators · Singapore</div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Built a centralized Customer 360 by integrating 20 years of data from 5 countries into a Tableau dashboard pulling from SAP, Salesforce, and Excel — and re-engineered the underlying ETL pipelines on AWS S3, cutting data retrieval latency by 40%.</p>
+      </div>
+
+      <div style="position:relative;margin-bottom:12px">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">June 2023 – August 2023</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">Data Science &amp; Machine Learning Intern</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px">TecAlliance Vietnam · Ho Chi Minh City, Vietnam</div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Engineered Python algorithms to parse data from 100+ wiring diagram SVGs, building structured datasets for computer vision models (YOLO) and downstream ML pipelines.</p>
+      </div>
+    </div>
+    <div style="font-size:13px;font-weight:600;margin:0 0 0 28px"><a href="Resume.dc.html">Full details in Resume →</a></div>
+  </section>
+
+  <section style="max-width:920px;margin:0 auto;padding:8px 28px 56px">
+    <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0F766E;margin-bottom:8px">/ teaching &amp; leadership</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 20px">Teaching &amp; Mentoring</h2>
+
+    <div style="position:relative;padding-left:28px;margin-bottom:36px">
+      <div style="position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:oklch(88% 0.01 260)"></div>
+
+      <div style="position:relative;margin-bottom:44px">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">Aug 2024 – May 2026</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">Teaching Assistant</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px">Department of Computer Science, Gonzaga University</div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Supported 150+ undergraduates across 3 data science courses, leading weekly office hours and grading to reinforce core algorithms, data workflows, and code quality.</p>
+      </div>
+      <div style="position:relative">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">Oct 2022 – Aug 2024</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">Academic Tutor &amp; Mentor</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px">Gonzaga Global, Gonzaga University</div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Provided tutoring and lab support for 7 computer science and quantitative courses, contributing to 15%+ average grade improvement for tutees.</p>
+      </div>
+    </div>
+
+    <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 20px">Professional &amp; Leadership Experience</div>
+    <div style="position:relative;padding-left:28px">
+      <div style="position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:oklch(88% 0.01 260)"></div>
+
+      <div style="position:relative;margin-bottom:44px">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">Mar 2022 – May 2026</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">Administrative Assistant</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px">Center for Global Engagement, Gonzaga University</div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Mentored incoming international students through cultural and academic transition to U.S. college and stepped in to independently run Gonzaga's Florence study-abroad program during a staffing shortage.</p>
+      </div>
+      <div style="position:relative">
+        <span style="position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:#0F766E"></span>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:oklch(50% 0.02 260);margin-bottom:8px">Nov 2021 – May 2025</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin-bottom:2px">Co-Founder &amp; Senior Advisor</div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:15px;color:oklch(40% 0.02 260);margin-bottom:10px">Vietnamese Student Association, Gonzaga University</div>
+        <p style="font-size:14px;color:oklch(30% 0.02 260);max-width:640px;margin:0">Co-founded the organization to foster a supportive community for Vietnamese students; mentored 10+ leaders in data-informed planning, increasing event turnout by 20% and generating $700+ profit.</p>
+      </div>
+    </div>
+    <div style="font-size:13px;font-weight:600;margin:16px 0 0 28px"><a href="Resume.dc.html">Full details in CV →</a></div>
+  </section>
+
+  <footer style="max-width:920px;margin:0 auto;padding:56px 28px 48px;border-top:1px solid oklch(91% 0.01 260)">
+    <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0F766E;margin-bottom:10px">/ thanks for stopping by</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:26px;font-weight:700;margin:0 0 20px">Be in touch!</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:20px;font-size:14px;font-weight:600;margin-bottom:24px">
+      <a href="mailto:nguyen.cong@northeastern.edu">nguyen.cong@northeastern.edu</a>
+      <a href="https://www.linkedin.com/in/tonixsmm/" target="_blank">linkedin.com/in/tonixsmm</a>
+      <a href="https://github.com/tonixsmm" target="_blank">github.com/tonixsmm</a>
+    </div>
+    <div style="font-size:12px;color:oklch(55% 0.02 260)">© 2026 Tony Nguyen · Last updated August 2026</div>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>
