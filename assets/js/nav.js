@@ -19,3 +19,27 @@
     });
   });
 })();
+
+(function(){
+  var el = document.getElementById('last-updated');
+  if(!el) return;
+  var KEY = 'last-updated-cache';
+  var TTL = 60 * 60 * 1000;
+  function show(iso){
+    var d = new Date(iso);
+    if(isNaN(d)) return;
+    el.textContent = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }
+  try {
+    var cached = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(cached && Date.now() - cached.t < TTL){ show(cached.iso); return; }
+  } catch(e) {}
+  fetch('https://api.github.com/repos/tonixsmm/tonixsmm.github.io/commits?per_page=1')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(commits){
+      var iso = commits[0].commit.committer.date;
+      show(iso);
+      try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), iso: iso })); } catch(e) {}
+    })
+    .catch(function(){});
+})();
